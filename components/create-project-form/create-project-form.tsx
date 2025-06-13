@@ -22,7 +22,7 @@ const CreateProjectForm: React.FC = () => {
           />
         )}
       />
-      {errors.title && <ThemedText className="mb-2 text-red-500">{errors.title.message}</ThemedText>}
+      {errors.title && <ThemedText className="mb-2 ml-1 text-lg text-red-500">{errors.title.message}</ThemedText>}
       <Controller
         control={control}
         name="description"
@@ -38,7 +38,7 @@ const CreateProjectForm: React.FC = () => {
           />
         )}
       />
-      {errors.description && <ThemedText className="mb-2 text-red-500">{errors.description.message}</ThemedText>}
+      {errors.description && <ThemedText className="mb-2 ml-1 text-lg text-red-500">{errors.description.message}</ThemedText>}
       <Pressable
         onPress={handleSubmit(addNewProject)}
         className='flex flex-row items-center justify-between px-5 py-2 mt-5 bg-black border border-white rounded-3xl'
