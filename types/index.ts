@@ -2,14 +2,16 @@ export type Project = {
   id: string
   title: string,
   description: string
-  tasks: Task[]
 }
 
 export type Task = {
   id: string
+  projectId: string;
   title: string
+  isCompleted: boolean
 }
 
 export enum StorageKey {
-  PROJECTS = 'projects'
+  PROJECTS = 'projects',
+  TASKS = 'tasks'
 }
