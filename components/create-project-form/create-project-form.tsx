@@ -6,7 +6,7 @@ import ThemedText from '../themed-text';
 import useCreateProjectForm from './use-create-project-form';
 
 const CreateProjectForm: React.FC = () => {
-  const { addNewProject, control, errors, handleSubmit } = useCreateProjectForm()
+  const { createProject, control, errors, handleSubmit } = useCreateProjectForm()
 
   return (
     <View>
@@ -40,7 +40,7 @@ const CreateProjectForm: React.FC = () => {
       />
       {errors.description && <ThemedText className="mb-2 ml-1 text-lg text-red-500">{errors.description.message}</ThemedText>}
       <Pressable
-        onPress={handleSubmit(addNewProject)}
+        onPress={handleSubmit(createProject)}
         className='flex flex-row items-center justify-between px-5 py-2 mt-5 bg-black border border-white rounded-3xl'
       >
         <ThemedText className='text-2xl text-white'>Dodaj projekt</ThemedText>

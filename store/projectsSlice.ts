@@ -26,8 +26,8 @@ const projectsSlice = createSlice({
   },
 });
 
-export const { setProjects, addProject, deleteProject } = projectsSlice.actions;
-export default projectsSlice.reducer;
-
 export const getProjectById = (state: RootState, id: string) =>
   state.projects.items.find(project => project.id === id);
+
+export const { setProjects, addProject, deleteProject } = projectsSlice.actions;
+export default projectsSlice.reducer;
