@@ -1,8 +1,11 @@
+import { RootState } from '@/store/store';
+import { getTaskCountByProjectId } from '@/store/tasksSlice';
 import { Project } from '@/types';
 import { Link } from 'expo-router';
 import React from 'react';
 import { Pressable, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useSelector } from 'react-redux';
 import ThemedText from '../themed-text';
 import useProjectTile from './use-project-tile';
 
@@ -13,6 +16,7 @@ interface Props {
 
 const ProjectTile: React.FC<Props> = ({ project, toggleEdit }) => {
   const { deleteProjectById } = useProjectTile()
+  const taskCount = useSelector((state: RootState) => getTaskCountByProjectId(state, project.id));
 
   return (
     <Link className='mt-4' href={{
@@ -23,7 +27,7 @@ const ProjectTile: React.FC<Props> = ({ project, toggleEdit }) => {
         <View className='flex flex-row justify-between flex-1 h-full pl-2'>
           <View className='flex justify-center flex-1'>
             <ThemedText className='text-2xl'>{project.title}</ThemedText>
-            <ThemedText className='text-lg text-gray-600'>Liczba zadań: 0</ThemedText>
+            <ThemedText className='text-lg text-gray-600'>Liczba zadań: {taskCount}</ThemedText>
           </View>
           {
             toggleEdit &&

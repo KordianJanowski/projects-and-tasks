@@ -37,5 +37,10 @@ export const getTasksByProjectId = createSelector(
   (tasks, projectId) => tasks.filter(task => task.projectId === projectId)
 );
 
+export const getTaskCountByProjectId = createSelector(
+  [getTasks, (_: RootState, projectId: string) => projectId],
+  (tasks, projectId) => tasks.filter(task => task.projectId === projectId).length
+);
+
 export const { setTasks, addTask, deleteTask, toggleTask } = tasksSlice.actions;
 export default tasksSlice.reducer;

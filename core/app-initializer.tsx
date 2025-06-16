@@ -1,12 +1,11 @@
-import { Inter_400Regular, Inter_500Medium, Inter_700Bold, useFonts } from '@expo-google-fonts/inter';
-import { useEffect, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
-import { useDispatch } from 'react-redux';
-
 import { setProjects } from '@/store/projectsSlice';
 import { setTasks } from '@/store/tasksSlice';
 import { Project, StorageKey, Task } from '@/types';
 import { loadData } from '@/utils/storage';
+import { Inter_400Regular, Inter_500Medium, Inter_700Bold, useFonts } from '@expo-google-fonts/inter';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import AppNavigator from './app-navigator';
 
 export default function AppInitializer() {
