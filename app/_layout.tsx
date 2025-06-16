@@ -1,36 +1,15 @@
-import { Stack } from 'expo-router';
-import 'react-native-reanimated';
+import { AppInitializer } from '@/core';
+import { store } from '@/store/store';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Provider } from 'react-redux';
 import "../global.css";
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerTitleAlign: 'center',
-        headerShadowVisible: false,
-        headerTitleStyle: {
-          fontWeight: 700,
-        }
-      }}
-    >
-      <Stack.Screen
-        name="index"
-        options={{
-          headerTitle: 'Projekty',
-        }}
-      />
-      <Stack.Screen
-        name="new-project"
-        options={{
-          headerTitle: 'Nowy projekt',
-        }}
-      />
-      <Stack.Screen
-        name="project-details"
-        options={{
-          headerTitle: 'Szczegóły projektu',
-        }}
-      />
-    </Stack>
+    <Provider store={store}>
+      <GestureHandlerRootView>
+        <AppInitializer />
+      </GestureHandlerRootView>
+    </Provider>
   );
 }
