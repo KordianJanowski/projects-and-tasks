@@ -39,7 +39,7 @@ const TaskTile: React.FC<Props> = ({ task, toggleEdit }) => {
               onPress={() => deleteTaskById(task.id)}
               className='ml-3'
             >
-              <Icon size={26} name="highlight-remove" color={"#f00000"}/>
+              <Icon size={25} name="highlight-remove" color={"#f00000"}/>
             </Pressable>
         }
       </View>

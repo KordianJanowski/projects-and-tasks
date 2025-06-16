@@ -1,10 +1,10 @@
-import { CreateTaskInput, TaskTile, ThemedText } from '@/components';
+import { CreateTaskInput, DraggableTaskTilesList, ThemedText } from '@/components';
 import { getProjectById } from '@/store/projectsSlice';
 import { RootState } from '@/store/store';
 import { getTasksByProjectId } from '@/store/tasksSlice';
 import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector } from 'react-redux';
 
@@ -18,7 +18,7 @@ export default function ProjectDetails() {
   if(!project) return <ThemedText>Projekt nie znaleziony</ThemedText>;
 
   return (
-    <ScrollView className='p-5'>
+    <View className='p-5'>
       <View className='pb-5 border-b border-gray-300'>
         <ThemedText className='mt-1 text-3xl font-InterBold'>{project.title}</ThemedText>
         <ThemedText className='mt-2 text-xl'>{project.description}</ThemedText>
@@ -39,15 +39,12 @@ export default function ProjectDetails() {
         }
       </View>
       <View className='w-full'>
-        {projectTasks.map((task) => (
-          <View key={task.id}>
-            <TaskTile
-              task={task}
-              toggleEdit={toggleEdit}
-            />
-          </View>
-        ))}
+        <DraggableTaskTilesList
+          projectId={projectId}
+          projectTasks={projectTasks}
+          toggleEdit={toggleEdit}
+        />
       </View>
-    </ScrollView>
+    </View>
   );
 }
