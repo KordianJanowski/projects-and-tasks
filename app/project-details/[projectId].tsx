@@ -18,7 +18,7 @@ export default function ProjectDetails() {
   if(!project) return <ThemedText>Projekt nie znaleziony</ThemedText>;
 
   return (
-    <View className='p-5'>
+    <View className='h-full p-5'>
       <View className='pb-5 border-b border-gray-300'>
         <ThemedText className='mt-1 text-3xl font-InterBold'>{project.title}</ThemedText>
         <ThemedText className='mt-2 text-xl'>{project.description}</ThemedText>
@@ -38,7 +38,7 @@ export default function ProjectDetails() {
             </Pressable>
         }
       </View>
-      <View className='w-full'>
+      <View className='flex-1 w-full'>
         <DraggableTaskTilesList
           projectId={projectId}
           projectTasks={projectTasks}
